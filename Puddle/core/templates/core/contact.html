@@ -3,5 +3,27 @@
 {% block title %} Contact {% endblock %}
 
 {% block content %}
-    <h1>The contact page</h1>
+<div class="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20">
+    <div class="mb-4 space-y-1">
+        <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Get help</p>
+        <h1 class="text-3xl font-semibold text-white">Contact Puddle</h1>
+        <p class="text-slate-300">Questions about a listing or need support? We usually respond within one business day.</p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+        <div class="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-slate-200">
+            <p class="text-sm font-semibold text-white">Safety and trust</p>
+            <p class="text-sm text-slate-300">Report suspicious activity or request help with disputes.</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-slate-200">
+            <p class="text-sm font-semibold text-white">Feature requests</p>
+            <p class="text-sm text-slate-300">Tell us what would make Puddle better for you.</p>
+        </div>
+    </div>
+
+    <div class="mt-6 space-y-2 text-sm text-slate-300">
+        <p>Email: support@puddle.app</p>
+        <p>Hours: Monday to Friday, 9am - 6pm</p>
+    </div>
+</div>
 {% endblock %}
