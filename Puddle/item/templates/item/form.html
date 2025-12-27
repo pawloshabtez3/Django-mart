@@ -3,25 +3,33 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-<h1 class="mb-6 text-3xl">{{ title }}</h1>
-
-<form method="post" action="." enctype="multipart/form-data">
-    {% csrf_token %}
-
-    <div class="space-y-4">
-        {{ form.as_p }}
+<div class="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20">
+    <div class="mb-6 space-y-2">
+        <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Listing</p>
+        <h1 class="text-3xl font-semibold text-white">{{ title }}</h1>
+        <p class="text-slate-300">Add photos, price, and details so buyers know exactly what they are getting.</p>
     </div>
 
-    {% if form.errors or form.non_field_errors %}
-        <div class="mb-3 p-6 bg-red-100 rounded-xl">
-            {% for field in form %}
-                {{ field.errors }}
-            {% endfor %}
+    <form method="post" action="." enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
 
-            {{ form.non_field_errors }}
+        <div class="space-y-4 text-slate-200">
+            {{ form.as_p }}
         </div>
-    {% endif %}
 
-    <button class="mt-6 py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Submit</button>
-</form>
+        {% if form.errors or form.non_field_errors %}
+            <div class="mb-3 rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-red-200">
+                {% for field in form %}
+                    {{ field.errors }}
+                {% endfor %}
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+
+        <div class="flex flex-wrap gap-3">
+            <button class="rounded-xl bg-ocean-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-black/20 hover:bg-ocean-700">Submit</button>
+            <a href="{% url 'dashboard:index' %}" class="rounded-xl border border-white/10 px-6 py-3 text-sm font-semibold text-slate-200 hover:border-white/30">Cancel</a>
+        </div>
+    </form>
+</div>
 {% endblock %}
